@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "userdetails")
 public class User {
@@ -18,9 +20,10 @@ public class User {
 	private String username;
 	private String realName;
 	private String password;
-	private Integer gender;
+	private String gender;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSSSS")
 	private Date birthday;
-	private Integer userType;
+	private String userType;
 
 	public Integer getId() {
 		return id;
@@ -54,11 +57,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Integer getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(Integer gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -70,11 +73,11 @@ public class User {
 		this.birthday = birthday;
 	}
 
-	public Integer getUserType() {
+	public String getUserType() {
 		return userType;
 	}
 
-	public void setUserType(Integer userType) {
+	public void setUserType(String userType) {
 		this.userType = userType;
 	}
 
